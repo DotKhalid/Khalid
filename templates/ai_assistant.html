@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Assistant</title>
+</head>
+<body>
+    <h1>AI Assistant Project</h1>
+    
+    <!-- User input form -->
+    <form action="/ai_assistant/project_route" method="POST">
+        <label for="user_input">Enter your question or input:</label>
+        <input type="text" name="user_input" id="user_input">
+        <input type="submit" value="Ask AI">
+    </form>
+    
+    <!-- Display AI response here -->
+    <div>
+        {% if user_input %}
+        <h2>Your Input:</h2>
+        <p>{{ user_input }}</p>
+        <h2>AI Response:</h2>
+        <p>{{ ai_response }}</p>
+        {% else %}
+        <p>No input or response available yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Reader</title>
+</head>
+<body>
+    <h1>PDF Reader Project</h1>
+    
+    <!-- File upload form -->
+    <form action="/pdf_reader/project_route" method="POST" enctype="multipart/form-data">
+        <input type="file" name="pdf_file">
+        <input type="submit" value="Read PDF">
+    </form>
+    
+    <!-- Display PDF content here -->
+    <div>
+        {% if pdf_text %}
+        <h2>PDF Text Content:</h2>
+        <pre>{{ pdf_text }}</pre>
+        {% else %}
+        <p>No PDF content available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
