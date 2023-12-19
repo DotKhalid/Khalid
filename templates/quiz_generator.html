@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Generator</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add custom CSS to remove list item dots and style quiz questions */
+        ul {
+            list-style-type: none; /* Remove list item dots */
+            padding-left: 0; /* Remove left padding for the list */
+        }
+
+        .quiz-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Quiz Generator</h1>
+        <form action="/" method="post">
+            <div class="form-group">
+                <label for="topic">Enter a Topic:</label>
+                <input type="text" class="form-control" id="topic" name="topic" required>
+            </div>
+            <div class="form-group">
+                <label for="level">Select Level:</label>
+                <select class="form-control" id="level" name="level">
+                    <option value="basic">Basic</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+                
+            </div>
+            <div class="form-group">
+                <label for="num_questions">Number of Questions:</label>
+                <input type="number" class="form-control" id="num_questions" name="num_questions" min="1" value="2" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Generate Quiz</button>
+        </form>
+        
+    </div>
+
+    <div class="container mt-4">
+        {% if questions %}
+        <h2>Generated Quiz Questions:</h2>
+        <ul id="quiz-list">
+            {% for line in questions.split('\n') %}
+            {% if line.startswith('Question') %}
+            <li class="quiz-question">{{ line }}</li>
+            {% else %}
+            <li>{{ line }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        <button id="generate-new-btn" class="btn btn-secondary mt-2">Generate New</button>
+        {% endif %}
+    </div>
+
+    <!-- Include Bootstrap JS and its dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.9/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        // JavaScript to make an asynchronous request for generating new questions
+        document.getElementById('generate-new-btn').addEventListener('click', function() {
+            // Send an AJAX request to the server to generate new questions
+            fetch('/generate_new_quiz', {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Update the quiz list with new questions
+                const quizList = document.getElementById('quiz-list');
+                quizList.innerHTML = '';
+                data.questions.forEach(question => {
+                    const li = document.createElement('li');
+                    li.textContent = question;
+                    if (question.startsWith('Question')) {
+                        li.classList.add('quiz-question');
+                    }
+                    quizList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+
+</html>
