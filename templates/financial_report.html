@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Report Generator</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1 class="display-4">💸 MoneyMentor</h1>
+        <p class="lead">This app is designed to assist Entrepreneurs and Startup founders in navigating the financial and legal aspects of developing their businesses. It provides valuable information and tools related to startup financing, addressing various Legal considerations such as Locale and Type of Funding Sought using the power of Large Language Models by Openai and Langchain.</p>
+    </div>
+    
+        <div class="col-md-12">
+            <h2 class="text-center">Features</h2>
+            <ul class="list-group">
+                <li class="list-group-item">🤑 MoneyMentor FinanceGPT - This Bot is ready to answer your business needs</li>
+                <li class="list-group-item">🧾 Financial Report Generator - This tool allows you to generate Financial Reports for your Start Up</li>
+            </ul>
+        </div>
+    <div class="container mt-5">
+        <h1 class="text-center">🧾 Financial Report Generator</h1>
+        <form action="/financial_report" method="POST">
+            <div class="form-group">
+                <label for="openai_api_key">OpenAI API Key:</label>
+                <input type="password" class="form-control" id="openai_api_key" name="openai_api_key" required>
+            </div>
+            <div class="form-group">
+                <label for="start_up_name">What is the name of your Start Up:</label>
+                <input type="text" class="form-control" id="start_up_name" name="start_up_name" required>
+            </div>
+            <div class="form-group">
+                <label for="start_up_description">Please describe your start up and revenue generation strategy:</label>
+                <textarea class="form-control" id="start_up_description" name="start_up_description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="country">Where is your Start Up based:</label>
+                <select class="form-control" id="country" name="country" required>
+                        <option value="Afghanistan">Afghanistan</option>
+                        <option value="Albania">Albania</option>
+                        <option value="Algeria">Algeria</option>
+                        <option value="Andorra">Andorra</option>
+                        <option value="Angola">Angola</option>
+                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Armenia">Armenia</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Azerbaijan">Azerbaijan</option>
+                        <option value="Bahamas">Bahamas</option>
+                        <option value="Bahrain">Bahrain</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Barbados">Barbados</option>
+                        <option value="Belarus">Belarus</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Belize">Belize</option>
+                        <option value="Benin">Benin</option>
+                        <option value="Bhutan">Bhutan</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                        <option value="Botswana">Botswana</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Brunei">Brunei</option>
+                        <option value="Bulgaria">Bulgaria</option>
+                        <option value="Burkina Faso">Burkina Faso</option>
+                        <option value="Burundi">Burundi</option>
+                        <option value="Cabo Verde">Cabo Verde</option>
+                        <option value="Cambodia">Cambodia</option>
+                        <option value="Cameroon">Cameroon</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Central African Republic">Central African Republic</option>
+                        <option value="Chad">Chad</option>
+                        <option value="Chile">Chile</option>
+                        <option value="China">China</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Comoros">Comoros</option>
+                        <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                        <option value="Croatia">Croatia</option>
+                        <option value="Cuba">Cuba</option>
+                        <option value="Cyprus">Cyprus</option>
+                        <option value="Czechia (Czech Republic)">Czechia (Czech Republic)</option>
+                        <option value="Democratic Republic of the Congo (Congo-Kinshasa)">Democratic Republic of the Congo (Congo-Kinshasa)</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Djibouti">Djibouti</option>
+                        <option value="Dominica">Dominica</option>
+                        <option value="Dominican Republic">Dominican Republic</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Egypt">Egypt</option>
+                        <option value="El Salvador">El Salvador</option>
+                        <option value="Equatorial Guinea">Equatorial Guinea</option>
+                        <option value="Eritrea">Eritrea</option>
+                        <option value="Estonia">Estonia</option>
+                        <option value="Eswatini (fmr. Swaziland)">Eswatini (fmr. Swaziland)</option>
+                        <option value="Ethiopia">Ethiopia</option>
+                        <option value="Fiji">Fiji</option>
+                        <option value="Finland">Finland</option>
+                        <option value="France">France</option>
+                        <option value="Gabon">Gabon</option>
+                        <option value="Gambia">Gambia</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="Greece">Greece</option>
+                        <option value="Grenada">Grenada</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Guinea">Guinea</option>
+                        <option value="Guinea-Bissau">Guinea-Bissau</option>
+                        <option value="Guyana">Guyana</option>
+                        <option value="Haiti">Haiti</option>
+                        <option value="Holy See">Holy See</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="Hungary">Hungary</option>
+                        <option value="Iceland">Iceland</option>
+                        <option value="India">India</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Iran">Iran</option>
+                        <option value="Iraq">Iraq</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Israel">Israel</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Ivory Coast">Ivory Coast</option>
+                        <option value="Jamaica">Jamaica</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Jordan">Jordan</option>
+                        <option value="Kazakhstan">Kazakhstan</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Kiribati">Kiribati</option>
+                        <option value="Kuwait">Kuwait</option>
+                        <option value="Kyrgyzstan">Kyrgyzstan</option>
+                        <option value="Laos">Laos</option>
+                        <option value="Latvia">Latvia</option>
+                        <option value="Lebanon">Lebanon</option>
+                        <option value="Lesotho">Lesotho</option>
+                        <option value="Liberia">Liberia</option>
+                        <option value="Libya">Libya</option>
+                        <option value="Liechtenstein">Liechtenstein</option>
+                        <option value="Lithuania">Lithuania</option>
+                        <option value="Luxembourg">Luxembourg</option>
+                        <option value="Madagascar">Madagascar</option>
+                        <option value="Malawi">Malawi</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Maldives">Maldives</option>
+                        <option value="Mali">Mali</option>
+                        <option value="Malta">Malta</option>
+                        <option value="Marshall Islands">Marshall Islands</option>
+                        <option value="Mauritania">Mauritania</option>
+                        <option value="Mauritius">Mauritius</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Micronesia">Micronesia</option>
+                        <option value="Moldova">Moldova</option>
+                        <option value="Monaco">Monaco</option>
+                        <option value="Mongolia">Mongolia</option>
+                        <option value="Montenegro">Montenegro</option>
+                        <option value="Morocco">Morocco</option>
+                        <option value="Mozambique">Mozambique</option>
+                        <option value="Myanmar (formerly Burma)">Myanmar (formerly Burma)</option>
+                        <option value="Namibia">Namibia</option>
+                        <option value="Nauru">Nauru</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="New Zealand">New Zealand</option>
+                        <option value="Nicaragua">Nicaragua</option>
+                        <option value="Niger">Niger</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="North Korea">North Korea</option>
+                        <option value="North Macedonia (formerly Macedonia)">North Macedonia (formerly Macedonia)</option>
+                        <option value="Norway">Norway</option>
+                        <option value="Oman">Oman</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Palau">Palau</option>
+                        <option value="Palestine State">Palestine State</option>
+                        <option value="Panama">Panama</option>
+                        <option value="Papua New Guinea">Papua New Guinea</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Peru">Peru</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Romania">Romania</option>
+                        <option value="Russia">Russia</option>
+                        <option value="Rwanda">Rwanda</option>
+                        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                        <option value="Saint Lucia">Saint Lucia</option>
+                        <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                        <option value="Samoa">Samoa</option>
+                        <option value="San Marino">San Marino</option>
+                        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                        <option value="Saudi Arabia">Saudi Arabia</option>
+                        <option value="Senegal">Senegal</option>
+                        <option value="Serbia">Serbia</option>
+                        <option value="Seychelles">Seychelles</option>
+                        <option value="Sierra Leone">Sierra Leone</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="Slovakia">Slovakia</option>
+                        <option value="Slovenia">Slovenia</option>
+                        <option value="Solomon Islands">Solomon Islands</option>
+                        <option value="Somalia">Somalia</option>
+                        <option value="South Africa">South Africa</option>
+                        <option value="South Korea">South Korea</option>
+                        <option value="South Sudan">South Sudan</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="Sudan">Sudan</option>
+                        <option value="Suriname">Suriname</option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="Syria">Syria</option>
+                        <option value="Tajikistan">Tajikistan</option>
+                        <option value="Tanzania">Tanzania</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Timor-Leste">Timor-Leste</option>
+                        <option value="Togo">Togo</option>
+                        <option value="Tonga">Tonga</option>
+                        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                        <option value="Tunisia">Tunisia</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="Turkmenistan">Turkmenistan</option>
+                        <option value="Tuvalu">Tuvalu</option>
+                        <option value="Uganda">Uganda</option>
+                        <option value="Ukraine">Ukraine</option>
+                        <option value="United Arab Emirates">United Arab Emirates</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="United States of America">United States of America</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Uzbekistan">Uzbekistan</option>
+                        <option value="Vanuatu">Vanuatu</option>
+                        <option value="Venezuela">Venezuela</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Yemen">Yemen</option>
+                        <option value="Zambia">Zambia</option>
+                        <option value="Zimbabwe">Zimbabwe</option>
+                </select>
+                
+            </div>
+            <div class="form-group">
+                <label for="sector">What is your Start Up about:</label>
+                <select class="form-control" id="sector" name="sector[]" multiple required>
+
+                        <option value="Technology and Software">Technology and Software</option>
+                        <option value="Healthcare and Biotechnology">Healthcare and Biotechnology</option>
+                        <option value="Agriculture and AgriTech">Agriculture and AgriTech</option>
+                        <option value="E-commerce and Retail">E-commerce and Retail</option>
+                        <option value="Fintech (Financial Technology)">Fintech (Financial Technology)</option>
+                        <option value="Food and Beverage">Food and Beverage</option>
+                        <option value="Manufacturing and Industry">Manufacturing and Industry</option>
+                        <option value="Clean Energy and Sustainability">Clean Energy and Sustainability</option>
+                        <option value="Education and EdTech">Education and EdTech</option>
+                        <option value="Transportation and Mobility">Transportation and Mobility</option>
+                        <option value="Real Estate and Property Tech (PropTech)">Real Estate and Property Tech (PropTech)</option>
+                        <option value="Entertainment and Media">Entertainment and Media</option>
+                        <option value="Travel and Tourism">Travel and Tourism</option>
+                        <option value="Social Impact and Nonprofits">Social Impact and Nonprofits</option>
+                        <option value="Space and Aerospace">Space and Aerospace</option>
+                        <option value="Fashion and Apparel">Fashion and Apparel</option>
+                        <option value="Artificial Intelligence (AI) and Machine Learning (ML)">Artificial Intelligence (AI) and Machine Learning (ML)</option>
+                        <option value="LegalTech">LegalTech</option>
+                        <option value="Blockchain and Cryptocurrency">Blockchain and Cryptocurrency</option>
+                        <option value="Sports and Fitness">Sports and Fitness</option>
+                        <option value="Gaming and Esports">Gaming and Esports</option>
+                        <option value="Cybersecurity">Cybersecurity</option>
+                        <option value="AI in Healthcare (HealthTech)">AI in Healthcare (HealthTech)</option>
+                        <option value="Supply Chain and Logistics">Supply Chain and Logistics</option>
+                        <option value="Emerging Technologies">Emerging Technologies</option>
+                        <!-- Add more sector options here -->
+                    
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="funding">What sort of Funding are you looking for:</label>
+                <select class="form-control" id="funding" name="funding[]" multiple required>
+                    <option value="Seed Funding">Seed Funding</option>
+                    <option value="Venture Capital">Venture Capital</option>
+                    <option value="Angel Investment">Angel Investment</option>
+                    <option value="Crowdfunding">Crowdfunding</option>
+                    <option value="Bank Loan">Bank Loan</option>
+                    <option value="Private Equity">Private Equity</option>
+                    <option value="Grants">Grants</option>
+                    <option value="Debt Financing">Debt Financing</option>
+                    <option value="Initial Coin Offering (ICO)">Initial Coin Offering (ICO)</option>
+                    <option value="Corporate Investment">Corporate Investment</option>
+                    <option value="Revenue-Based Financing">Revenue-Based Financing</option>
+                    <option value="Convertible Notes">Convertible Notes</option>
+                    <option value="SBA Loans">SBA Loans</option>
+                    <option value="Microloans">Microloans</option>
+                    <option value="Peer-to-Peer Lending">Peer-to-Peer Lending</option>
+                    <option value="Equity Crowdfunding">Equity Crowdfunding</option>
+                    <option value="Revenue Sharing">Revenue Sharing</option>
+                    <option value="Asset-Based Financing">Asset-Based Financing</option>
+                    <option value="Mezzanine Financing">Mezzanine Financing</option>
+                    <option value="Bridge Loans">Bridge Loans</option>
+                    <option value="Impact Investment">Impact Investment</option>
+                    <option value="Real Estate Crowdfunding">Real Estate Crowdfunding</option>
+                    <option value="Pre-Seed Funding">Pre-Seed Funding</option>
+                
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Generate Financial Report</button>
+        </form>
+        <div class="download-link mt-3">
+            {% if generated_report %}
+                <a href="data:application/octet-stream;base64,{{ generated_report[0] }}" download="{{ generated_report[1] }}" class="btn btn-success">Download Financial Report</a>
+            {% endif %}
+        </div>
+    </div>
+    <!-- Add Bootstrap JS (optional) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

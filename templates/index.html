@@ -1,15 +1,158 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Project List</title>
-</head>
-<body>
-    <h1>Welcome to the Project List</h1>
-    <ul>
-        <li><a href="/pdf_reader/project_route">PDF Reader</a></li>
-        <li><a href="/ai_assistant/project_route">AI Assistant</a></li>
+<html lang="en">
 
-        <!-- Add links for other projects as needed -->
-    </ul>
-</body>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Muhammad Khalid | AI developer</title>
+
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/owl.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/animate.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+
+  </head>
+
+<body>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <h4>Muhammad Khalid</h4>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Search End ***** -->
+                    <div class="search-input">
+                      <form id="search" action="#">
+                        <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
+                        <i class="fa fa-search"></i>
+                      </form>
+                    </div>
+                    <!-- ***** Search End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="browse.html">Browse</a></li>
+                        <!-- <li><a href="details.html">Details</a></li> -->
+          
+                        <li><a href="profile.html">Profile <img src="/static/assets/images/Muhammad-Khalid-Profile-Photo.png" alt=""></a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <!-- ***** Banner Start ***** -->
+          <div class="main-banner">
+            <div class="row">
+              <div class="col-lg-7">
+                <div class="header-text">
+                  <h6>Welcome To Rehan Labs</h6>
+                  <h4>Unlock the Future</h4>
+                  <h4>Your AI Toolkit</h4>
+                  <h4>Explore Power of AI</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ***** Banner End ***** -->
+
+          <!-- ***** Most Popular Start ***** -->
+          <div class="most-popular">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="heading-section">
+                  <h4><em>Most Popular</em> Right Now</h4>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="item">
+                      <img src="static/assets/images/popular-01.jpg" alt="">
+                      <h4><a href="http://127.0.0.1:8000/finance_gpt/">FinanceGPT</a></h4>
+                      <ul>
+                        <li><i class="fa fa-star"></i> 4.8</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="item">
+                      <img src="static/assets/images/popular-02.jpg" alt="">
+                      <h4>PubG<br><span>Battle S</span></h4>
+                      <ul>
+                        <li><i class="fa fa-star"></i> 4.8</li>
+                        <li><i class="fa fa-download"></i> 2.3M</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="item">
+                      <img src="static/assets/images/popular-03.jpg" alt="">
+                      <h4>Dota2<br><span>Steam-X</span></h4>
+                      <ul>
+                        <li><i class="fa fa-star"></i> 4.8</li>
+                        <li><i class="fa fa-download"></i> 2.3M</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="main-button">
+                      <a href="browse.html">Discover Popular</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved. 
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+<script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='static/assets/js/isotope.min.js') }}"></script>
+<script src="{{ url_for('static', filename='static/assets/js/owl-carousel.js') }}"></script>
+<script src="{{ url_for('static', filename='static/assets/js/tabs.js') }}"></script>
+<script src="{{ url_for('static', filename='static/assets/js/popup.js') }}"></script>
+<script src="{{ url_for('static', filename='static/assets/js/custom.js') }}"></script>
+
+
+
+
+  </body>
+
 </html>

@@ -11,9 +11,9 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 # Initialize OpenAI client
 client = OpenAI(api_key=openai_api_key)
 
-ai_assistant_app = Blueprint('ai_assistant', __name__)
+ai_assistant_app = Blueprint('tool1', __name__)
 
-@ai_assistant_app.route('/project_route', methods=['GET', 'POST'])
+@ai_assistant_app.route('/', methods=['GET', 'POST'])
 def project_route():
     if request.method == 'POST':
         user_input = request.form['user_input']
