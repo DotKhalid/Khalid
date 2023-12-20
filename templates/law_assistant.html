@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law Assistant Chatbot</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS styles for chat */
+        .chat-box {
+            max-height: 400px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .message {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .bot-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+
+        .message p {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .timestamp {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Additional styles for input and button */
+        .query-input {
+            height: 60px; /* Increase the height of the input box */
+        }
+
+        .send-button {
+            font-size: 16px; /* Increase the font size of the button */
+            height: 60px; /* Increase the height of the button */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <form method="POST" action="/clear" class="mb-4">
+            <button type="submit" class="btn btn-danger float-right">Clear Chat</button>
+        </form>
+        <h1 class="mb-4 text-left">Law Assistant Chatbot</h1>
+        
+
+        <div class="chat-box">
+            {% for message in session['messages'] %}
+                <div class="message {% if message[1] == 'Bot' %}bot{% endif %}">
+                    {% if message[1] == 'User' %}
+                        <img src="/static/assets/images/User_follower_icons_social_media_notification_icon_in_speech_bubbles_vector_illustration.jpg" alt="User Avatar" class="user-avatar">
+                    {% else %}
+                        <img src="/static/assets/images/28638.jpg" alt="Bot Avatar" class="bot-avatar">
+                    {% endif %}
+                    <p>{{ message[1] }}:</p>
+                    <p>{{ message[2] }}</p>
+                    <p class="timestamp">{{ message[0] }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <form method="POST" action="/law_assistant" class="mt-4" enctype="multipart/form-data">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <input type="file" name="file" class="btn btn-secondary" id="fileInput">
+                </div>
+                <input type="text" name="query" class="form-control query-input" placeholder="Enter your query">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary send-button">Send Message</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
